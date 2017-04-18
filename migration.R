@@ -1,3 +1,5 @@
+#I changed the first line to test my git thingo.
+
 #data migration for Directions from Communicare to Mastercare
 #goal: identify which variables in communicare data output csv map to which variables in mastercare input (multiple) csv's
 #then write a script to cut and paste from one to the other, while retaining the original format of the mastercare input csv's
