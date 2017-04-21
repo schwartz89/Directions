@@ -1,5 +1,3 @@
-#I changed the first line to test my git thingo.
-
 #data migration for Directions from Communicare to Mastercare
 #goal: identify which variables in communicare data output csv map to which variables in mastercare input (multiple) csv's
 #then write a script to cut and paste from one to the other, while retaining the original format of the mastercare input csv's
@@ -215,9 +213,27 @@
   
   #Data transfer template
 ClientDemographics$Sex <- rbind(ClientDemographics$Sex,DirectionsClinicalExtract$PAT.SEX)     #notworking
+  #####
+Sex<-data.frame(DirectionsClinicalExtract$PAT.SEX,check.names = FALSE)
+ClientDemographics$Sex <- rbind(ClientDemographics$Sex,Sex)
+
+####
   
-  
-  
+ClientDemographics$Sex_n<-merge(ClientDemographics$Sex,DirectionsClinicalExtract$PAT.SEX)
+
+#####
+#make a new blank dataframe, rename the columns to all be correct, delete the old name.
+names(DirectionsClinicalExtract)[names(DirectionsClinicalExtract)=="PAT.SEX"] <- "Sex" #this works at renaming
+
+
+####
+blah<-append(DirectionsClinicalExtract[["Sex"]], ClientDemographics[["Sex"]]) #This one is getting there! just need to convert back to df after.
+#and insert back into the otuput doc (can maybe do this last as one step?)
+
+
+
+
+
   #vital data
   "PAT.ID", #ALL
   "PAT.SEX",ClientDemographics
