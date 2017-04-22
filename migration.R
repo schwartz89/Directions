@@ -216,10 +216,41 @@
 #making a blank df that matches MasterCare's
   ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))  #copies dimensions of ClientDemographics #removed nrows
 #Adding variable to workspace
-  Sex<-DirectionsClinicalExtract[["Sex"]]
+  Sex<-DirectionsClinicalExtract[["Sex"]] #[["PAT.SEX"]]
 #merging variable to new data frame
   ClientDemographics_N<-cbind(Sex,ClientDemographics_N); 
 
+#now repeat this formula for all data  
+  #can I just write a function to do this?
+  
+  DOB<-DirectionsClinicalExtract[["DATE.OF.BIRTH"]]
+  ClientDemographics_N<-cbind(DOB,ClientDemographics_N); 
+  
+  FirstName<-DirectionsClinicalExtract[["FORENAMES"]]
+  ClientDemographics_N<-cbind(FirstName,ClientDemographics_N); 
+  
+  Surname<-DirectionsClinicalExtract[["SURNAME"]]
+  ClientDemographics_N<-cbind(Surname,ClientDemographics_N); 
+  
+  AddressLine1<-DirectionsClinicalExtract[["ADDR.1"]]
+  ClientDemographics_N<-cbind(AddressLine1,ClientDemographics_N); 
+  
+  AddressLine2<-DirectionsClinicalExtract[["ADDR.2"]]
+  ClientDemographics_N<-cbind(AddressLine2,ClientDemographics_N); 
+  
+  PhoneBH<-DirectionsClinicalExtract[["PHONE"]]
+  ClientDemographics_N<-cbind(PhoneBH,ClientDemographics_N); 
+  
+  Mobile<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
+  ClientDemographics_N<-cbind(Mobile,ClientDemographics_N); 
+  
+#writing this into a function
+  function(Com,Mas,df){ #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
+    Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
+    df<-cbind(Mas,df); 
+  }
+  #then I would have to just go through the below list, running the function on each. A little neater than the above.
+  
   #vital data
   "PAT.ID", #ALL
   "PAT.SEX",ClientDemographics
