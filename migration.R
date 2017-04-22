@@ -212,18 +212,21 @@
 #transforming data to appropriate formats where required
   
   #Data transfer template
-ClientDemographics$Sex <- rbind(ClientDemographics$Sex,DirectionsClinicalExtract$PAT.SEX)     #notworking
-  #####
-Sex<-data.frame(DirectionsClinicalExtract$PAT.SEX,check.names = FALSE)
-ClientDemographics$Sex <- rbind(ClientDemographics$Sex,Sex)
+#Sex<-data.frame(DirectionsClinicalExtract$PAT.SEX,check.names = FALSE)
+#names(Sex)<-"Sex" #these two lines sucessfully create a properly-named sex variable. Next step is to add it to a "Client Demographics" df.
 
+rbind(ClientDemographics[["Sex"]],Sex); #do I need to add all variables to "Sex" as NA ti get this to work? df$x <- NA
+
+## making a blank df that matches MasterCare's
+newblankdf <-data.frame(matrix(NA, nrow = nrow(ClientDemographics), ncol = ncol(ClientDemographics))) #copies dimensions of ClientDemographics
+names(newblankdf)<-names(ClientDemographics) #this works at setting the variable names. 
 ####
   
 ClientDemographics$Sex_n<-merge(ClientDemographics$Sex,DirectionsClinicalExtract$PAT.SEX)
 
 #####
 #make a new blank dataframe, rename the columns to all be correct, delete the old name.
-names(DirectionsClinicalExtract)[names(DirectionsClinicalExtract)=="PAT.SEX"] <- "Sex" #this works at renaming
+#names(DirectionsClinicalExtract)[names(DirectionsClinicalExtract)=="PAT.SEX"] <- "Sex" #this works at renaming
 
 
 ####
