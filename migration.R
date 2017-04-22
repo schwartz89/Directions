@@ -211,31 +211,14 @@
 #finding and sending to appropriate homes in Mastercare for the data
 #transforming data to appropriate formats where required
   
-  #Data transfer template
-#Sex<-data.frame(DirectionsClinicalExtract$PAT.SEX,check.names = FALSE)
-#names(Sex)<-"Sex" #these two lines sucessfully create a properly-named sex variable. Next step is to add it to a "Client Demographics" df.
+  #####Data transfer template#####
 
-rbind(ClientDemographics[["Sex"]],Sex); #do I need to add all variables to "Sex" as NA ti get this to work? df$x <- NA
-
-## making a blank df that matches MasterCare's
-newblankdf <-data.frame(matrix(NA, nrow = nrow(ClientDemographics), ncol = ncol(ClientDemographics))) #copies dimensions of ClientDemographics
-names(newblankdf)<-names(ClientDemographics) #this works at setting the variable names. 
-####
-  
-ClientDemographics$Sex_n<-merge(ClientDemographics$Sex,DirectionsClinicalExtract$PAT.SEX)
-
-#####
-#make a new blank dataframe, rename the columns to all be correct, delete the old name.
-#names(DirectionsClinicalExtract)[names(DirectionsClinicalExtract)=="PAT.SEX"] <- "Sex" #this works at renaming
-
-
-####
-blah<-append(DirectionsClinicalExtract[["Sex"]], ClientDemographics[["Sex"]]) #This one is getting there! just need to convert back to df after.
-#and insert back into the otuput doc (can maybe do this last as one step?)
-
-
-
-
+#making a blank df that matches MasterCare's
+  ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))  #copies dimensions of ClientDemographics #removed nrows
+#Adding variable to workspace
+  Sex<-DirectionsClinicalExtract[["Sex"]]
+#merging variable to new data frame
+  ClientDemographics_N<-cbind(Sex,ClientDemographics_N); 
 
   #vital data
   "PAT.ID", #ALL
