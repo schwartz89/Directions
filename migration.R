@@ -215,6 +215,7 @@
 
 #making a blank df that matches MasterCare's
   ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))  #copies dimensions of ClientDemographics #removed nrows
+
 #Adding variable to workspace
   Sex<-DirectionsClinicalExtract[["Sex"]] #[["PAT.SEX"]]
 #merging variable to new data frame
@@ -242,14 +243,43 @@
   ClientDemographics_N<-cbind(PhoneBH,ClientDemographics_N); 
   
   Mobile<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
-  ClientDemographics_N<-cbind(Mobile,ClientDemographics_N); 
+  ClientDemographics_N<-cbind(Mobile,ClientDemographics_N); #this line pair works. But function below doesn't yet.
   
 #writing this into a function
-  function(Com,Mas,df){ #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
-    Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
+  #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
+  Transfer.data <- function(Com,Mas,df){
+    deparse(substitute(Mas)) <- Com #this line is problematic #try name(Mas)<-Com   #try attach()?  #Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
     df<-cbind(Mas,df); 
   }
+  source(Transfer.data) #necessary?
+  
+  #current issue
+  #ok so "Mobile"<-DirectionsClinicalExtract[["MOBILE.PHONE"]] works to create a var called Mobile with data required
+  #however Mas<-"Mobile", then Mas <-DirectionsClinicalExtract[["MOBILE.PHONE"]] does not. It just puts the data in Mas. Is there a "rename variable" function?
+  
+  
+  #test zone
+  Com<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
+  Mas<-"Mobile"
+  df<-ClientDemographics_N
+  
+  Transfer.data(Com,Mas,df)
+  View(df)  
+  View(ClientDemographics_N)
+    
+  Transfer.data("MOBILE.PHONE","Mobile",ClientDemographics_N) #test this
   #then I would have to just go through the below list, running the function on each. A little neater than the above.
+  
+  #function(x, y) {#uses argnames as labels
+#   plot(x, y, xlab = deparse(substitute(x)),
+#        ylab = deparse(substitute(y)))
+#   }
+  
+  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
+  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
+  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
+  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
+  
   
   #vital data
   "PAT.ID", #ALL
