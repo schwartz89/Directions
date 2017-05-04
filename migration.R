@@ -154,17 +154,18 @@
 #finding and sending to appropriate homes in Mastercare for the data
 #transforming data to appropriate formats where required
   
-  #####Data transfer template#####
+#####Data transfer template#####
 
-#making a blank df that matches MasterCare's
-  ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))  #copies dimensions of ClientDemographics #removed nrows
+  #making a blank dataframe that matches MasterCare's
+    ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))  #copies dimensions of ClientDemographics #removed nrows
 
-#Adding variable to workspace
-  Sex<-DirectionsClinicalExtract[["Sex"]] #[["PAT.SEX"]]
-#merging variable to new data frame
-  ClientDemographics_N<-cbind(Sex,ClientDemographics_N); 
+  #Adding variable to workspace
+    Sex<-DirectionsClinicalExtract[["Sex"]] #[["PAT.SEX"]]
+  #merging variable to new data frame
+    ClientDemographics_N<-cbind(Sex,ClientDemographics_N); 
 
-#now repeat this formula for all data  
+##EXECUTING TRANSFER##
+  #now repeat this formula for all data  
   #can I just write a function to do this?
   
   DOB<-DirectionsClinicalExtract[["DATE.OF.BIRTH"]] #these line pair works. But function below doesn't yet.
@@ -196,76 +197,76 @@
 
   
   #vital data
-  "PAT.ID", #ALL
-  "PAT.SEX",ClientDemographics
-  "DATE.OF.BIRTH", ClientDemographics
-  "PAT.HDWA.MRN", #SLK #ALL
-  "MEDICARE.NO", HealthCareCard
-  "MEDICARE.REF.NO",HealthCareCard
-  "MEDICARE.EXPIRY",HealthCareCard
-  "OLD.PENSION.NO",HealthCareCard
-  "FORENAMES",ClientDemographics
-  "SURNAME",ClientDemographics
-  "ADDR.1",ClientDemographics
-  "ADDR.2",ClientDemographics
-  "PHONE",ClientDemographics
-  "KIN.NAME1",NOK
-  "BIRTHPLACE",ClientDemographics
-  "MOBILE.PHONE",ClientDemographics
-  "WORK.PHONE",ClientDemographics
-  "EMERGENCY.CONTACT.NAME",NOK
-  "EMERGENCY.CONTACT.PHONE",NOK
-  "HCC.EXPIRY",HealthCareCard
-  "FULL.NAME",ClientDemographics
-  "ABORIGINAL",ClientDemographics
-  "CRN.NO")]HealthCareCard
-   
-   #maybe useful data
-   "SERVICE.PROVIDER.NO",GP, Staff
-   "MORB.TYPE.SHORT.DESC",
-   "MORB.TYPE.SHORT.DESC.UC",
-   "SYS.CODE",
-   "ICPC.CODE", ICPC
-   "NAT.LAN.TERM",
-   "MORB.RIGHT.NO",
-   "PREG.COMPLICATION",nowhere
-   "UNIQUE.ID",ALL? Redundant?
-   "PAT.ID.1",ALL? Redundant?
-   "LOCALITY.NO",ClientDemographics
-   "AB.TYPE.NO",
-   "KIN.TYPE1",NOK?
-   "CURRENT.STATUS",
-   "EMERGENCY.CONTACT.TYPE",NOK
-   "HIC.BULK.ELIGIBLE", nowhere
-   "FIRST.FORENAME",ClientDemographics redundant?
-   "MARITAL.STATUS.NO",ClientDemographics
-   "LANGUAGE.NO",ClientDemographics & maybe ClientOtherLanguage
-   "BIRTH.CTRY.NO",ClientDemographics (redundant?)
-   "CENTRELINK.TYPE.CODE",
-   "HCC.NO", HealthCareCard redundant #doubled up with CRN.NO
-   "DOB.ESTIMATED", nowhere #t/f tickbox
-   "HIC.ELIGIBILITY.LAST.CHECKED", nowhere
-   "NTHC.SEND.DRUG.ALLERGY",nowhere
-   "LANGUAGE.HOME.NO",ClientDemographics
-   "NO.KNOWN.REACTIONS", nowhere
-   "CTG.REGISTERED",
-   "BP.IMPORTED.PAT.ID", nowhere
-   "PREFERRED.CONTACT",ClientDemographics or nowhere
-   "HAS.NO.PHONE", nowhere
-   "RECORD.STORAGE.SITE.NO", nowhere
-   "HIC.BULK.BILL",
-   "HIC.CLAIM.STATUS",
-   "HIC.DB4.PRINTED",
-   "HIC.NON.CLAIMABLE",
-   "REASON.MORB.NO",
-   "PROVIDER.NO.1", ClientGP, GP?
-   "SPECIALITY.TYPE.NO", ClientGP, GP?
-   "D.GENDER", ClientGP, GP? #dr gender? 
-   "DOH.PRESCRIBER.NO", GP
-   "QUALIFICATIONS", nowhere
-   "TITLE", ClientGP, GP?#of dr
-   "BP.USERID")] nowehere
-   
+#   "PAT.ID", #ALL
+#   "PAT.SEX",ClientDemographics
+#   "DATE.OF.BIRTH", ClientDemographics
+#   "PAT.HDWA.MRN", #SLK #ALL
+#   "MEDICARE.NO", HealthCareCard
+#   "MEDICARE.REF.NO",HealthCareCard
+#   "MEDICARE.EXPIRY",HealthCareCard
+#   "OLD.PENSION.NO",HealthCareCard
+#   "FORENAMES",ClientDemographics
+#   "SURNAME",ClientDemographics
+#   "ADDR.1",ClientDemographics
+#   "ADDR.2",ClientDemographics
+#   "PHONE",ClientDemographics
+#   "KIN.NAME1",NOK
+#   "BIRTHPLACE",ClientDemographics
+#   "MOBILE.PHONE",ClientDemographics
+#   "WORK.PHONE",ClientDemographics
+#   "EMERGENCY.CONTACT.NAME",NOK
+#   "EMERGENCY.CONTACT.PHONE",NOK
+#   "HCC.EXPIRY",HealthCareCard
+#   "FULL.NAME",ClientDemographics
+#   "ABORIGINAL",ClientDemographics
+#   "CRN.NO")]HealthCareCard
+#    
+#    #maybe useful data
+#    "SERVICE.PROVIDER.NO",GP, Staff
+#    "MORB.TYPE.SHORT.DESC",
+#    "MORB.TYPE.SHORT.DESC.UC",
+#    "SYS.CODE",
+#    "ICPC.CODE", ICPC
+#    "NAT.LAN.TERM",
+#    "MORB.RIGHT.NO",
+#    "PREG.COMPLICATION",nowhere
+#    "UNIQUE.ID",ALL? Redundant?
+#    "PAT.ID.1",ALL? Redundant?
+#    "LOCALITY.NO",ClientDemographics
+#    "AB.TYPE.NO",
+#    "KIN.TYPE1",NOK?
+#    "CURRENT.STATUS",
+#    "EMERGENCY.CONTACT.TYPE",NOK
+#    "HIC.BULK.ELIGIBLE", nowhere
+#    "FIRST.FORENAME",ClientDemographics redundant?
+#    "MARITAL.STATUS.NO",ClientDemographics
+#    "LANGUAGE.NO",ClientDemographics & maybe ClientOtherLanguage
+#    "BIRTH.CTRY.NO",ClientDemographics (redundant?)
+#    "CENTRELINK.TYPE.CODE",
+#    "HCC.NO", HealthCareCard redundant #doubled up with CRN.NO
+#    "DOB.ESTIMATED", nowhere #t/f tickbox
+#    "HIC.ELIGIBILITY.LAST.CHECKED", nowhere
+#    "NTHC.SEND.DRUG.ALLERGY",nowhere
+#    "LANGUAGE.HOME.NO",ClientDemographics
+#    "NO.KNOWN.REACTIONS", nowhere
+#    "CTG.REGISTERED",
+#    "BP.IMPORTED.PAT.ID", nowhere
+#    "PREFERRED.CONTACT",ClientDemographics or nowhere
+#    "HAS.NO.PHONE", nowhere
+#    "RECORD.STORAGE.SITE.NO", nowhere
+#    "HIC.BULK.BILL",
+#    "HIC.CLAIM.STATUS",
+#    "HIC.DB4.PRINTED",
+#    "HIC.NON.CLAIMABLE",
+#    "REASON.MORB.NO",
+#    "PROVIDER.NO.1", ClientGP, GP?
+#    "SPECIALITY.TYPE.NO", ClientGP, GP?
+#    "D.GENDER", ClientGP, GP? #dr gender? 
+#    "DOH.PRESCRIBER.NO", GP
+#    "QUALIFICATIONS", nowhere
+#    "TITLE", ClientGP, GP?#of dr
+#    "BP.USERID")] nowehere
+#    
    #test zone
    Com<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
    Mas<-"Mobile"
