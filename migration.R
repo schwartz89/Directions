@@ -45,39 +45,31 @@
    View(Team)
    
 #import Communicare data
-   
    DirectionsClinicalExtract <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/DirectionsClinicalExtract.csv")
      View(DirectionsClinicalExtract)
 
-#identifying data that needs to be migrated and is translatable
-     #getting list of all variables in the communicare data
-     
+
+#getting list of all variables in the communicare data
     Communicare.names <-names(DirectionsClinicalExtract)
-#this shows that there are 276 variables to home into Mastercare
     
 #now select vital data and subdivide this into a new dataset
 
-    #chop away columns that have no data and list their name
-    #identify them
+    #grab columns that have no data and list their name
     Dir_isempty<-sapply(DirectionsClinicalExtract, function(x)all(is.na(x)))
     Dir_Names_emptycols <- names(Dir_isempty[Dir_isempty>0]) #this grabs the TRUEs
     print("the columns with all values missing")
     print(Dir_Names_emptycols)
-#this shows that there are 106 columns that are empty and can be removed
-    
+
+    #get all cols WITH data
     Dir_Names_usedcols <- names(Dir_isempty[Dir_isempty<1]) #this is all columns with data
     print("the columns that contain data")
     print(Dir_Names_usedcols)
-#this shows there are 170 columns with data 
-    
-#new dataset with all emptycols removed
-    Communicare <- DirectionsClinicalExtract[Dir_Names_usedcols]
-    
-#manual inspection of remaining data to remove useless feilds
-    write.csv(Communicare, file = "Communicare.csv") #file creation for easier browsing. Switch off if rerunning script
-    
 
-#congregation of definitely vital data
+    
+#Create new dataset with all emptycols removed
+    Communicare <- DirectionsClinicalExtract[Dir_Names_usedcols]
+
+#congregation of definitely vital data (use manual inspection for this)
     Communicare_Vital<-Communicare[c(
                                     "PAT.ID",
                                     "PAT.SEX",
@@ -152,19 +144,16 @@
                                     "BP.USERID")]
    
     
-#setting up lists of variable names    
-    Communicare_Vital_N<-names(Communicare_Vital)
-    Communicare_useful_N<-names(Communicare_useful)
-    
-#All remaining non-useful data by subracting the two useful sets from the full communicare set (still excluding the empty columns) 
-   Communicare_trash <- Communicare[ , !(names(Communicare) %in% c(Communicare_Vital_N,Communicare_useful_N))] 
+#All remaining non-useful data by subracting the two useful sets from the full communicare set (still excluding the empty columns)
+  Communicare_Vital_N<-names(Communicare_Vital)
+  Communicare_useful_N<-names(Communicare_useful)
+  Communicare_trash <- Communicare[ , !(names(Communicare) %in% c(Communicare_Vital_N,Communicare_useful_N))] 
   
-  
-#save all to csv.
+#save all subdivided communicare data to csv.
   write.csv(Communicare_Vital, file = "Communicare_Vital.csv")
   write.csv(Communicare_useful, file = "Communicare_useful.csv")
   write.csv(Communicare_trash, file = "Communicare_trash.csv")  
-  
+  write.csv(Communicare, file = "Communicare.csv") 
   
 #finding and sending to appropriate homes in Mastercare for the data
 #transforming data to appropriate formats where required
