@@ -7,41 +7,6 @@
 
 ##import all -> name cleverly -> recode/reformat inappropriate data -> transfer data from C to M -> export, matching origin format
 
-##import all input templates (jonPC specific)
- # Appointment <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Appointment.csv")
- #   View(Appointment)
- # ClientDemographics <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ClientDemographics.csv", header=TRUE)
- #   View(ClientDemographics)
- # ClientGP <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ClientGP.csv")
- #   View(ClientGP)
- # ClientOtherLanguage <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ClientOtherLanguage.csv")
- #   View(ClientOtherLanguage)
- # FamilyHistory <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/FamilyHistory.csv")
- #   View(FamilyHistory)
- # GP <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/GP.csv", header=TRUE)
- #   View(GP)
- # ClientDemographics <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ClientDemographics.csv", header=TRUE)
- #   View(ClientDemographics)
- # HealthCareCard <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/HealthCareCard.csv")
- #   View(HealthCareCard)
- # ICD10 <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ICD10.csv")
- #   View(ICD10)
- # ICPC <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/ICPC.csv")
- #   View(ICPC)
- # NOK <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/NOK.csv", header=TRUE)
- #   View(NOK)
- # Referral <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Referral.csv")
- #   View(Referral)
- # Referral_BoiMH <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Referral_BoiMH.csv", header=TRUE)
- #   View(Referral_BoiMH)
- # Session <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Session.csv")
- #   View(Session)
- # Staff <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Staff.csv")
- #   View(Staff)
- # StaffTeam <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/StaffTeam.csv")
- #   View(StaffTeam)
- # Team <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/Import templates & data dictionary/Team.csv")
-   # View(Team)
    
 #import Mastercare templates using home adress to be easier to transfer computers.  
    Appointment <- read.csv(file="Appointment.csv")
@@ -111,87 +76,80 @@
 #manual inspection of remaining data to remove useless feilds
     write.csv(Communicare, file = "Communicare.csv") #file creation for easier browsing. Switch off if rerunning script
     
-#some likely useless fields below (there are definitely more)
-    #CREATED.DATE is used only when PAT.MORB.DESC field is used (which is v rarely)
-    #RECALL.INTERVAL is just preset durations. Almost all the same
-    #CREATED.USER is all "SYSDBA". Presumably referring to the fact it was made by an admin. A few refer to staff
-    #CREATED.TIMESTAMP refers to CREATED.USER is all basically the same. Only different when made by staff
-    #AGE.TITLE.TODAY is not something we would want to migrate as their age will change and Mastercare will surely calculate this from DOB
-    #MISSED.APPOINTMENT.RISK I'm quite sure refers to a tickbox in Communicare which may not exist in Mastercare'
-    
+
 #congregation of definitely vital data
     Communicare_Vital<-Communicare[c(
-    "PAT.ID",
-    "PAT.SEX",
-    "DATE.OF.BIRTH",
-    "PAT.HDWA.MRN", #SLK
-    "MEDICARE.NO",
-    "MEDICARE.REF.NO",
-    "MEDICARE.EXPIRY",
-    "OLD.PENSION.NO",
-    "FORENAMES",
-    "SURNAME",
-    "ADDR.1",
-    "ADDR.2",
-    "PHONE",
-    "KIN.NAME1",
-    "BIRTHPLACE",
-    "MOBILE.PHONE",
-    "WORK.PHONE",
-    "EMERGENCY.CONTACT.NAME",
-    "EMERGENCY.CONTACT.PHONE",
-    "HCC.EXPIRY",
-    "FULL.NAME",
-    "ABORIGINAL",
-    "CRN.NO")]
-    
+                                    "PAT.ID",
+                                    "PAT.SEX",
+                                    "DATE.OF.BIRTH",
+                                    "PAT.HDWA.MRN", #SLK
+                                    "MEDICARE.NO",
+                                    "MEDICARE.REF.NO",
+                                    "MEDICARE.EXPIRY",
+                                    "OLD.PENSION.NO",
+                                    "FORENAMES",
+                                    "SURNAME",
+                                    "ADDR.1",
+                                    "ADDR.2",
+                                    "PHONE",
+                                    "KIN.NAME1",
+                                    "BIRTHPLACE",
+                                    "MOBILE.PHONE",
+                                    "WORK.PHONE",
+                                    "EMERGENCY.CONTACT.NAME",
+                                    "EMERGENCY.CONTACT.PHONE",
+                                    "HCC.EXPIRY",
+                                    "FULL.NAME",
+                                    "ABORIGINAL",
+                                    "CRN.NO")]
+            
 
 #congregation of maybe useful data    
     Communicare_useful<-Communicare[c(
-    "SERVICE.PROVIDER.NO",
-    "MORB.TYPE.SHORT.DESC",
-    "MORB.TYPE.SHORT.DESC.UC",
-    "SYS.CODE",
-    "ICPC.CODE",
-    "NAT.LAN.TERM",
-    "MORB.RIGHT.NO",
-    "PREG.COMPLICATION",
-    "UNIQUE.ID",
-    "PAT.ID.1",
-    "LOCALITY.NO",
-    "AB.TYPE.NO",
-    "KIN.TYPE1",
-    "CURRENT.STATUS",
-    "EMERGENCY.CONTACT.TYPE",
-    "HIC.BULK.ELIGIBLE",
-    "FIRST.FORENAME",
-    "MARITAL.STATUS.NO",
-    "LANGUAGE.NO",
-    "BIRTH.CTRY.NO",
-    "CENTRELINK.TYPE.CODE",
-    "HCC.NO", #double up with CRN.NO
-    "DOB.ESTIMATED", #t/f tickbox
-    "HIC.ELIGIBILITY.LAST.CHECKED",
-    "NTHC.SEND.DRUG.ALLERGY",
-    "LANGUAGE.HOME.NO",
-    "NO.KNOWN.REACTIONS",
-    "CTG.REGISTERED",
-    "BP.IMPORTED.PAT.ID",
-    "PREFERRED.CONTACT",
-    "HAS.NO.PHONE",
-    "RECORD.STORAGE.SITE.NO",
-    "HIC.BULK.BILL",
-    "HIC.CLAIM.STATUS",
-    "HIC.DB4.PRINTED",
-    "HIC.NON.CLAIMABLE",
-    "REASON.MORB.NO",
-    "PROVIDER.NO.1",
-    "SPECIALITY.TYPE.NO",
-    "D.GENDER", #dr gender?
-    "DOH.PRESCRIBER.NO",
-    "QUALIFICATIONS",
-    "TITLE", #of dr
-    "BP.USERID")]
+                                    "SERVICE.PROVIDER.NO",
+                                    "MORB.TYPE.SHORT.DESC",
+                                    "MORB.TYPE.SHORT.DESC.UC",
+                                    "SYS.CODE",
+                                    "ICPC.CODE",
+                                    "NAT.LAN.TERM",
+                                    "MORB.RIGHT.NO",
+                                    "PREG.COMPLICATION",
+                                    "UNIQUE.ID",
+                                    "PAT.ID.1",
+                                    "LOCALITY.NO",
+                                    "AB.TYPE.NO",
+                                    "KIN.TYPE1",
+                                    "CURRENT.STATUS",
+                                    "EMERGENCY.CONTACT.TYPE",
+                                    "HIC.BULK.ELIGIBLE",
+                                    "FIRST.FORENAME",
+                                    "MARITAL.STATUS.NO",
+                                    "LANGUAGE.NO",
+                                    "BIRTH.CTRY.NO",
+                                    "CENTRELINK.TYPE.CODE",
+                                    "HCC.NO", #double up with CRN.NO
+                                    "DOB.ESTIMATED", #t/f tickbox
+                                    "HIC.ELIGIBILITY.LAST.CHECKED",
+                                    "NTHC.SEND.DRUG.ALLERGY",
+                                    "LANGUAGE.HOME.NO",
+                                    "NO.KNOWN.REACTIONS",
+                                    "CTG.REGISTERED",
+                                    "BP.IMPORTED.PAT.ID",
+                                    "PREFERRED.CONTACT",
+                                    "HAS.NO.PHONE",
+                                    "RECORD.STORAGE.SITE.NO",
+                                    "HIC.BULK.BILL",
+                                    "HIC.CLAIM.STATUS",
+                                    "HIC.DB4.PRINTED",
+                                    "HIC.NON.CLAIMABLE",
+                                    "REASON.MORB.NO",
+                                    "PROVIDER.NO.1",
+                                    "SPECIALITY.TYPE.NO",
+                                    "D.GENDER", #dr gender?
+                                    "DOH.PRESCRIBER.NO",
+                                    "QUALIFICATIONS",
+                                    "TITLE", #of dr
+                                    "BP.USERID")]
    
     
 #setting up lists of variable names    
@@ -224,7 +182,7 @@
 #now repeat this formula for all data  
   #can I just write a function to do this?
   
-  DOB<-DirectionsClinicalExtract[["DATE.OF.BIRTH"]]
+  DOB<-DirectionsClinicalExtract[["DATE.OF.BIRTH"]] #these line pair works. But function below doesn't yet.
   ClientDemographics_N<-cbind(DOB,ClientDemographics_N); 
   
   FirstName<-DirectionsClinicalExtract[["FORENAMES"]]
@@ -243,43 +201,14 @@
   ClientDemographics_N<-cbind(PhoneBH,ClientDemographics_N); 
   
   Mobile<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
-  ClientDemographics_N<-cbind(Mobile,ClientDemographics_N); #this line pair works. But function below doesn't yet.
+  ClientDemographics_N<-cbind(Mobile,ClientDemographics_N); 
   
-#writing this into a function
-  #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
-  Transfer.data <- function(Com,Mas,df){
-    deparse(substitute(Mas)) <- Com #this line is problematic #try name(Mas)<-Com   #try attach()?  #Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
-    df<-cbind(Mas,df); 
-  }
-  source(Transfer.data) #necessary?
+  CountryOfBirth<-DirectionsClinicalExtract[["BIRTHPLACE"]]
+  ClientDemographics_N<-cbind(CountryOfBirth,ClientDemographics_N);   
   
-  #current issue
-  #ok so "Mobile"<-DirectionsClinicalExtract[["MOBILE.PHONE"]] works to create a var called Mobile with data required
-  #however Mas<-"Mobile", then Mas <-DirectionsClinicalExtract[["MOBILE.PHONE"]] does not. It just puts the data in Mas. Is there a "rename variable" function?
-  
-  
-  #test zone
-  Com<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
-  Mas<-"Mobile"
-  df<-ClientDemographics_N
-  
-  Transfer.data(Com,Mas,df)
-  View(df)  
-  View(ClientDemographics_N)
-    
-  Transfer.data("MOBILE.PHONE","Mobile",ClientDemographics_N) #test this
-  #then I would have to just go through the below list, running the function on each. A little neater than the above.
-  
-  #function(x, y) {#uses argnames as labels
-#   plot(x, y, xlab = deparse(substitute(x)),
-#        ylab = deparse(substitute(y)))
-#   }
-  
-  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
-  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
-  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
-  Transfer.data(MOBILE.PHONE,Mobile,ClientDemographics_N)
-  
+  IndigenousStatus<-DirectionsClinicalExtract[["ABORIGINAL"]]
+  ClientDemographics_N<-cbind(IndigenousStatus,ClientDemographics_N);   
+
   
   #vital data
   "PAT.ID", #ALL
@@ -305,53 +234,83 @@
   "FULL.NAME",ClientDemographics
   "ABORIGINAL",ClientDemographics
   "CRN.NO")]HealthCareCard
-  
-  #maybe useful data
- "SERVICE.PROVIDER.NO",GP, Staff
- "MORB.TYPE.SHORT.DESC",
- "MORB.TYPE.SHORT.DESC.UC",
- "SYS.CODE",
- "ICPC.CODE", ICPC
- "NAT.LAN.TERM",
- "MORB.RIGHT.NO",
- "PREG.COMPLICATION",nowhere
- "UNIQUE.ID",ALL? Redundant?
- "PAT.ID.1",ALL? Redundant?
- "LOCALITY.NO",ClientDemographics
- "AB.TYPE.NO",
- "KIN.TYPE1",NOK?
- "CURRENT.STATUS",
- "EMERGENCY.CONTACT.TYPE",NOK
- "HIC.BULK.ELIGIBLE", nowhere
- "FIRST.FORENAME",ClientDemographics redundant?
- "MARITAL.STATUS.NO",ClientDemographics
- "LANGUAGE.NO",ClientDemographics & maybe ClientOtherLanguage
- "BIRTH.CTRY.NO",ClientDemographics (redundant?)
- "CENTRELINK.TYPE.CODE",
- "HCC.NO", HealthCareCard redundant #doubled up with CRN.NO
- "DOB.ESTIMATED", nowhere #t/f tickbox
- "HIC.ELIGIBILITY.LAST.CHECKED", nowhere
- "NTHC.SEND.DRUG.ALLERGY",nowhere
- "LANGUAGE.HOME.NO",ClientDemographics
- "NO.KNOWN.REACTIONS", nowhere
- "CTG.REGISTERED",
- "BP.IMPORTED.PAT.ID", nowhere
- "PREFERRED.CONTACT",ClientDemographics or nowhere
- "HAS.NO.PHONE", nowhere
- "RECORD.STORAGE.SITE.NO", nowhere
- "HIC.BULK.BILL",
- "HIC.CLAIM.STATUS",
- "HIC.DB4.PRINTED",
- "HIC.NON.CLAIMABLE",
- "REASON.MORB.NO",
- "PROVIDER.NO.1", ClientGP, GP?
- "SPECIALITY.TYPE.NO", ClientGP, GP?
- "D.GENDER", ClientGP, GP? #dr gender? 
- "DOH.PRESCRIBER.NO", GP
- "QUALIFICATIONS", nowhere
- "TITLE", ClientGP, GP?#of dr
- "BP.USERID")] nowehere
    
+   #maybe useful data
+   "SERVICE.PROVIDER.NO",GP, Staff
+   "MORB.TYPE.SHORT.DESC",
+   "MORB.TYPE.SHORT.DESC.UC",
+   "SYS.CODE",
+   "ICPC.CODE", ICPC
+   "NAT.LAN.TERM",
+   "MORB.RIGHT.NO",
+   "PREG.COMPLICATION",nowhere
+   "UNIQUE.ID",ALL? Redundant?
+   "PAT.ID.1",ALL? Redundant?
+   "LOCALITY.NO",ClientDemographics
+   "AB.TYPE.NO",
+   "KIN.TYPE1",NOK?
+   "CURRENT.STATUS",
+   "EMERGENCY.CONTACT.TYPE",NOK
+   "HIC.BULK.ELIGIBLE", nowhere
+   "FIRST.FORENAME",ClientDemographics redundant?
+   "MARITAL.STATUS.NO",ClientDemographics
+   "LANGUAGE.NO",ClientDemographics & maybe ClientOtherLanguage
+   "BIRTH.CTRY.NO",ClientDemographics (redundant?)
+   "CENTRELINK.TYPE.CODE",
+   "HCC.NO", HealthCareCard redundant #doubled up with CRN.NO
+   "DOB.ESTIMATED", nowhere #t/f tickbox
+   "HIC.ELIGIBILITY.LAST.CHECKED", nowhere
+   "NTHC.SEND.DRUG.ALLERGY",nowhere
+   "LANGUAGE.HOME.NO",ClientDemographics
+   "NO.KNOWN.REACTIONS", nowhere
+   "CTG.REGISTERED",
+   "BP.IMPORTED.PAT.ID", nowhere
+   "PREFERRED.CONTACT",ClientDemographics or nowhere
+   "HAS.NO.PHONE", nowhere
+   "RECORD.STORAGE.SITE.NO", nowhere
+   "HIC.BULK.BILL",
+   "HIC.CLAIM.STATUS",
+   "HIC.DB4.PRINTED",
+   "HIC.NON.CLAIMABLE",
+   "REASON.MORB.NO",
+   "PROVIDER.NO.1", ClientGP, GP?
+   "SPECIALITY.TYPE.NO", ClientGP, GP?
+   "D.GENDER", ClientGP, GP? #dr gender? 
+   "DOH.PRESCRIBER.NO", GP
+   "QUALIFICATIONS", nowhere
+   "TITLE", ClientGP, GP?#of dr
+   "BP.USERID")] nowehere
+   
+   #test zone
+   Com<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
+   Mas<-"Mobile"
+   df<-ClientDemographics_N
+   
+   Transfer.data(Com,Mas,df)
+   View(df)  
+   View(ClientDemographics_N)
+   
+#writing this into a function
+  #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
+  Transfer.data <- function(Com,Mas,df){
+    deparse(substitute(Mas)) <- Com #this line is problematic #try name(Mas)<-Com   #try attach()?  #Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
+    df<-cbind(Mas,df); 
+  }
+  
+  #current issue
+  #ok so "Mobile"<-DirectionsClinicalExtract[["MOBILE.PHONE"]] works to create a var called Mobile with data required
+  #however Mas<-"Mobile", then Mas <-DirectionsClinicalExtract[["MOBILE.PHONE"]] does not. It just puts the data in Mas. Is there a "rename variable" function?
+  
+  Transfer.data("MOBILE.PHONE","Mobile",ClientDemographics_N) #test this
+  #then I would have to just go through the below list, running the function on each. A little neater than the above.
+  
+  #function(x, y) {#uses argnames as labels
+#   plot(x, y, xlab = deparse(substitute(x)),
+#        ylab = deparse(substitute(y)))
+#   }
+  
+
+  
 
    
    
