@@ -46,7 +46,7 @@
      View(Team)
      
   #import Communicare data
-     DirectionsClinicalExtract <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/DirectionsClinicalExtract.csv")
+     DirectionsClinicalExtract <- read.csv("DirectionsClinicalExtract.csv")
        View(DirectionsClinicalExtract)
        
 ####WRANGLING/SUBDIVIDING IMPORTED DATA####
@@ -275,16 +275,18 @@
   
   
 ####WRITING TRANSFER INTO A FUNCTION####
-  #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one). Reads from Direcitonsclinical, but perhaps I should make this changable?
+  #com=communicare var name mas=mastercare var name df= Mastercare dataframe(the appropriate one).
   Transfer.data <- function(Com,Mas,df){
-    deparse(substitute(Mas)) <- Com #this line is problematic #try name(Mas)<-Com   #try attach()?  #Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
+    
+    #deparse(substitute(Mas)) <- Com #this line is problematic #try name(Mas)<-Com   #try attach()?  #Mas<-DirectionsClinicalExtract[[Com]] #does com in [] work here?
+    
     df<-cbind(Mas,df); 
   }
 
 #####FUNCTION TEST ZONE####
   #inputs
    Com<-DirectionsClinicalExtract[["MOBILE.PHONE"]]
-   Mas<-"Mobile"
+   # Mas<-"Mobile"
    df<-ClientDemographics_N
   #the function 
    Transfer.data(Com,Mas,df)
@@ -295,6 +297,14 @@
   #ok so "Mobile"<-DirectionsClinicalExtract[["MOBILE.PHONE"]] works to create a var called Mobile with data required
   #however Mas<-"Mobile", then Mas <-DirectionsClinicalExtract[["MOBILE.PHONE"]] does not. It just puts the data in Mas. Is there a "rename variable" function?
   
+   #1. Create dataframe for output
+   ClientDemographics_N <-data.frame(matrix(NA, nrow = nrow(DirectionsClinicalExtract), ncol = ncol(ClientDemographics)))
+   #2. Extract data into a variable
+   PhoneBH<-DirectionsClinicalExtract[["PHONE"]]
+   #3. Combine the dataframe and the variable, using the variable name we provided by default
+   ClientDemographics_N<-cbind(PhoneBH,ClientDemographics_N); 
+   #4. (optional??) Rename column to specific name
+   names(ClientDemographics_N)[names(ClientDemographics_N) == "PhoneBH"] <- 'new.var.name' #setnames() from data.table package can also be used
         
         #function(x, y) {#uses argnames as labels
       #   plot(x, y, xlab = deparse(substitute(x)),
