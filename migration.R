@@ -48,11 +48,7 @@
    DirectionsClinicalExtract <- read.csv("C:/Users/Owner/Dropbox/job stuff/Directions/Data migration/DirectionsClinicalExtract.csv")
      View(DirectionsClinicalExtract)
 
-
-#getting list of all variables in the communicare data
-    Communicare.names <-names(DirectionsClinicalExtract)
-    
-#now select vital data and subdivide this into a new dataset
+#select vital data and subdivide this into a new dataset
 
     #grab columns that have no data and list their name
     Dir_isempty<-sapply(DirectionsClinicalExtract, function(x)all(is.na(x)))
