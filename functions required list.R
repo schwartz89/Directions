@@ -31,15 +31,23 @@ DataTransfer <- function(X,oldnames,newnames){
   oldnames     <- as.character(oldnames)
   newnames     <- as.character(newnames)
  #Renaming function  
- # df <- data.frame(matrix(NA, nrow = nrow(X), ncol = ncol(X))) #output df
- # colnames(df)<- colnames(X)
- df <- setnames(X, old = oldnames, new = newnames)
-  
+  df<-cbind(X) #clones X so I don't edit it
+  df <- setnames(df, old = oldnames, new = newnames)
   df #?
-}#working great but for some reason is applying change to original doc. lolhow
-#it is also making changes to df, which is an empty dataframe. oops 
+  
+  #scrap all non-renamed data? Or do this externally?
+ #This could be done by using newnames variable, or doing a list compare
+ #between original and new docs and deleting replicates
+}
 
 
 
 # F4. Export function. Grabs data and prints it to appropriate .csv. 
 # Structures/dataframe naming convention in F3 will likely help here.
+
+
+
+
+
+#Scrapped code
+# df <- data.frame(matrix(NA, nrow = nrow(X), ncol = ncol(X))) #blank df
