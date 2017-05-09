@@ -19,7 +19,7 @@
 # Really you’re just renaming.
 #
 
-DataTransfer <- function(x,oldnames,newnames){
+DataTransfer <- function(X,oldnames,newnames){
  #Package Installation
   Required.packages <- c("data.table")
   Missing.packages <- Required.packages[!(Required.packages %in% installed.packages()[ , "Package"])] 
@@ -31,12 +31,13 @@ DataTransfer <- function(x,oldnames,newnames){
   oldnames     <- as.character(oldnames)
   newnames     <- as.character(newnames)
  #Renaming function  
-  df <- data.frame(matrix(NA, nrow = nrow(x), ncol = ncol(x))) #output df
-  colnames(df)<- colnames(x)
-  setnames(df, old = oldnames, new = newnames)
+ # df <- data.frame(matrix(NA, nrow = nrow(X), ncol = ncol(X))) #output df
+ # colnames(df)<- colnames(X)
+ df <- setnames(X, old = oldnames, new = newnames)
   
   df #?
 }#working great but for some reason is applying change to original doc. lolhow
+#it is also making changes to df, which is an empty dataframe. oops 
 
 
 
