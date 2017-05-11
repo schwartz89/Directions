@@ -1,0 +1,7 @@
+Surname,FirstName,PracticeName,Address,Suburb,State,PostCode,Phone,Fax,ProviderNo,eMail,RNUserName,MailingAddressLine1,MailingAddressLine2,MailingSuburb,MailingPostCode,Speciality,IsCurrent
+Good,Feel,,123 Bourke St,Melbourne,VIC,3000,1234 5678,,ABC123,feel.good@melbournegps.com,,PO Box 123,,Melbourne,3001,Dietitian,1
+Aday,Apple,,,,NSW,9988,2222 3333,,DEF246,,,,,,,GP,
+Mogadon,Popa,Chilax Clinic,1 Spring St,,VIC,3065,,1234 5555,,,,,,,,,0
+ASurnameOnly,,,,,,,,,,,,"Shop 1, Level 3, Cubix Bizzare",123 Bay Rd,Port Melbourne,3123,Community Mental Health,1
+,AFirstNameOnly,,,,,,,,,,,,,,,,0
+,,APracticeNameOnly,,,,,,,,,,,,,,,

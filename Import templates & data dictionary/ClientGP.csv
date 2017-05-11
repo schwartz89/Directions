@@ -1,0 +1,13 @@
+ClientIdentifier,GPSurname,GPFirstName,GPListPosition,GPPracticeName
+1,Good,Feel,1,
+1,Aday,Apple,2,
+1,Mogadon,Popa,3,Chilax Clinic
+1,ASurnameOnly,,4,
+1,,AFirstNameOnly,5,
+1,,,6,APracticeNameOnly
+2,Good,Feel,1,
+2,Aday,Apple,2,
+3,Mogadon,Popa,1,
+4,Aday,Apple,1,
+4,Mogadon,Popa,2,Chilax Clinic
+HSGF484843,Aday,Apple,1,

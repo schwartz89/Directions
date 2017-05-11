@@ -1,0 +1,4 @@
+ClientIdentifier,MedicareNo,MedicarePersonID,MedicareExpiryDate,DVANo,DVAExpiryDate,DVAColour,OtherCardType,OtherCardNo,OtherCardExpiryDate,PharmBENoCardType,PharmBENo,PharmBENoExpiryDate,ClaimNumber,EmployerName,EmployerAddress
+1,S474664599,1,2008-07-29 00:00:00,6666444444443,2009-10-05 00:00:00,0,Medicare Private,234234234234,2009-10-03 00:00:00,Concessional or Dependant,12312312312,2009-09-25 00:00:00,,,
+2,S474664599,2,2008-07-29 00:00:00,6666444444444,2009-10-06 00:00:00,1,Auto-Insert Other Card,,,Safety Net Concession Card,,,,,
+HSGF484843,1234567890,1,,,,,Defence Health,123123123123,2014-01-07 00:00:00,Auto-Insert PharmBE Card,,,89898912345,Southern Cross Hospitality,"Southern Cross Railway Station, MELBOURNE VIC 3000"

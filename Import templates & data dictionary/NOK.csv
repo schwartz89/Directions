@@ -1,0 +1,8 @@
+ClientIdentifier,ContactType,Relationship,Surname,FirstName,AddressLine1,AddressLine2,AddressLine3,Suburb,State,PostCode,Country,PhoneBH,PhoneAH,Mobile,Email
+1,Personal Contact,Aunt,Simpson,Samantha,123 Rock Rd,,,,,1,,12345678,11223344,1234 567 890,ss@gmail.com
+1,Emergency Contact,Father,Simpson,,1 Bourke St,,,Melbourne,VIC,2,Australia,22334433,,,
+1,Preferred Next of Kin,Wife,,Marge,"Level 1, Sunshine Appartments",100 Sunny Lane,,Geelong,,,,,77665544,,
+2,Professional Contact,Guardian,White,Craig,,,,,VIC,2345,,,,8877-665-599,
+2,Emergency Contact,Bro,,,,,,,NSW,,,,,,
+4,Senior Available Next of Kin,Guardian,Dogooder,Jane,,,,,VIC,,,,,,DJ@gmail.com
+HSGF484843,In Case of Emergency,Mother,Terry,Mama,,,,,VIC,,,,,,

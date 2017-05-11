@@ -1,0 +1,10 @@
+ClientIdentifier,TeamName,ReferralDate,Sender,Additional_Sessions,Conclusion,ICD_F1,ICD_F2,ICD_F3,ICD_F4,ICD_F5,ICD_Unkn,ICD_Other,Strategy_DiagnosticAssessment,Strategy_PsychoEducation,Strategy_InterpersonalTherapy,Strategy_NarrativeTherapy,Strategy_Other,CBT_BehaviouralInterventions,CBT_CognitiveInterventions,CBT_RelaxationStrategies,CBT_SkillsTraining,CBT_Other,MED_Benzo,MED_AntiDep,MED_Pheno,MED_Mood,REF_Type,K10_Before,K10_After,DASS21_DEP_Before,DASS21_DEP_After,DASS21_ANX_Before,DASS21_ANX_After,DASS21_STR_Before,DASS21_STR_After,HoNOS_Before,HoNOS_After
+1,TestTeam2,2011-07-06 00:00:00,PA for Apple Aday,0,Treatment complete,,,,,,1,,,,1,0,,1,1,,,,0,,,,,9,3,,,,,1,4,,
+1,TestTeam1,2011-07-07 00:00:00,Dr White Teeth,1,Patient could not be contacted,,,1,,,,This is an other ICD,1,,,,,,,,,,,1,,,Aboriginal,,,,,,,,,,
+1,TestTeam1,2012-10-01 00:00:00,ASurnameOnly,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,TestTeam2,2012-10-02 00:00:00,AFirstNameOnly,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,TestTeam2,2012-10-03 00:00:00,APracticeNameOnly,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4,TestTeam2,2011-06-05 00:00:00,Pastor Charles,,Patient refused treatment,0,0,,,,,,,0,,,,,0,1,0,,,,0,,,,,8,7,6,12,,,3,10
+4,TestTeam1,2011-04-08 00:00:00,Nurse Katrina,,Patient referred elsewhere,,,,0,,,,,,,,Other Strategy,,,,,Other CBT,,,,1,Homelessness,,,,,,,,,17,5
+HSGF484843,TestTeam1,2011-02-02 00:00:00,Dr Shmuck,,Treatment incomplete but referral closed,,,,,0,,,,,,,,,,,,,,,,,Suicide Prevention,,,,,,,,,,
+HSGF484843,TestTeam1,2011-02-09 00:00:00,Dr Shmuck,1,Patient referred elsewhere,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -162,7 +162,7 @@
     #Adding variable to workspace
       #Sex<-DirectionsClinicalExtract[["Sex"]] #[["PAT.SEX"]]
     #merging variable to new data frame
-      #ClientDemographics_N<-cbind(Sex,ClientDemographics_N); 
+      #ClientDemographics_N<-cbind(Sex,ClientDemographics_N);
 
 ####EXECUTING TRANSFER####
   #now repeat this formula for all data  
@@ -304,7 +304,7 @@
    #3. Combine the dataframe and the variable, using the variable name we provided by default
    ClientDemographics_N<-cbind(PhoneBH,ClientDemographics_N); 
    #4. (optional??) Rename column to specific name
-   names(ClientDemographics_N)[names(ClientDemographics_N) == "PhoneBH"] <- 'new.var.name' #setnames() from data.table package can also be used
+   names(ClientDemographics_N)[names(ClientDemographics_N) == "PhoneBH"] <- 'new.var.name' #setnames() from data.table package can also be used # could maybe use a GUI input for names readlines() readline() scan()
         
         #function(x, y) {#uses argnames as labels
       #   plot(x, y, xlab = deparse(substitute(x)),

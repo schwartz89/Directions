@@ -1,0 +1,7 @@
+ClientIdentifier,StaffName,Diagnosis,StartDate
+1,TestStaff,A00,2010-02-01 00:00:00
+1,NonActiveStaff,B81.0,2000-04-02 00:00:00
+1,TestStaff,D35.6,2004-07-03 00:00:00
+3,TestStaff,A02.0,2011-07-05 00:00:00
+HSGF484843,NonActiveStaff,FAKE.0,2009-03-07 00:00:00
+HSGF484843,TestStaff,C30.0,2003-05-09 00:00:00

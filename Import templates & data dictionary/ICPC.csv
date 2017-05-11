@@ -1,0 +1,9 @@
+ClientIdentifier,StaffName,Code,Description,StartDate
+1,TestStaff,N29018,abnormal gait,2010-02-01 00:00:00
+2,TestStaff,B99016,haematological abnormality,2009-06-07 00:00:00
+2,NonActiveStaff,X01009,ICPC term doesn't exist,2001-02-01 00:00:00
+3,TestStaff,A13005,worried about drug reaction,2009-07-03 00:00:00
+3,TestStaff,S18004,skin wound,2011-01-01 00:00:00
+3,TestStaff,L01005,wry neck,2009-09-02 00:00:00
+HSGF484843,NonActiveStaff,B99016,haematological abnormality,2011-12-07 00:00:00
+HSGF484843,TestStaff,K84023,,2010-12-30 00:00:00

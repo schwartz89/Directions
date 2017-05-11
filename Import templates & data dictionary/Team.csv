@@ -1,0 +1,4 @@
+LevelID,TreatAsIf,TeamName,ListOnScreen,HasNewRefs,Phone,Fax,Address,ScreenTab,NotifyOtherTeams,IsCommunityResidential,ModifyCrisisPlan,OSLevel,ShowAudit,ProgNoteDocType,TeamType,PrimaryReferralPoint,OSScreen,ObservationTabName,Email,ABN
+1,,TEAM NAME,0,0,,,,0,0,0,0,0,1,1,,0,,Observations,,
+,1,TestTeam1,1,0,12 3456 7890,12 3456 7891,123 ABC Rd,0,0,0,0,2,0,1,3,0,2,Observations,testteam1@TEAMNAME.com,123-456-789
+100,,TestTeam2,1,0,12 3456 7892,12 3456 7893,456 DEF St,0,0,0,0,2,0,1,3,0,1,Observations,,222-333-444

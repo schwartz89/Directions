@@ -1,0 +1,15 @@
+ClientIdentifier,TeamName,StaffName,SessionDate,Duration,ReferralTeamName,ReferralDate,ReferralSender,AHProName,Type,No_Show,Copayment,Session_Modality,St_CBT_Behaviour,St_CBT_Cognitive,St_CBT_Relaxation,St_CBT_Skills,St_CBT_Other,St_Diagnosis,St_Psycho_ed,St_Interpersonal,St_Narrative,St_Other
+1,TestTeam2,TestStaff,2012-07-09 00:00:00,31-45 mins,TestTeam2,2011-07-06 00:00:00,PA for Apple Aday,,Individual,,12,Face to Face,,1,,1,,,,,1,
+1,TestTeam2,TestStaff,2012-07-16 00:00:00,0-30 mins,TestTeam2,2011-07-06 00:00:00,PA for Apple Aday,,Individual,1,10,Face to Face,1,,,,,,,,,st_other
+1,TestTeam2,TestStaff,2012-07-23 00:00:00,0-30 mins,TestTeam2,2011-07-06 00:00:00,PA for Apple Aday,,Individual,,8,Face to Face,,,1,,,,,,,Some other strategies
+1,TestTeam1,TestStaff,2012-07-16 00:00:00,31-45 mins,TestTeam1,2011-07-07 00:00:00,Dr White Teeth,,Group,,5,,,0,,,,,,,1,
+1,TestTeam1,TestStaff,2012-07-30 00:00:00,31-45 mins,TestTeam1,2011-07-07 00:00:00,Dr White Teeth,,Group,,2,,,,,,,,1,1,,
+1,TestTeam1,TestStaff,2012-11-01 00:00:00,0-30 mins,TestTeam1,2012-10-01 00:00:00,ASurnameOnly,,Individual,,,,,,,,,,,,,
+1,TestTeam1,TestStaff,2012-11-08 00:00:00,0-30 mins,TestTeam1,2012-10-01 00:00:00,ASurnameOnly,,Individual,,,,,,,,,,,,,
+1,TestTeam2,TestStaff,2012-11-02 00:00:00,46-60 mins,TestTeam2,2012-10-02 00:00:00,AFirstNameOnly,,Group,,,,,,,,,,,,,
+1,TestTeam2,TestStaff,2012-11-09 00:00:00,0-30 mins,TestTeam2,2012-10-02 00:00:00,AFirstNameOnly,,Individual,,,,,,,,,,,,,
+1,TestTeam2,TestStaff,2012-11-03 00:00:00,31-45 mins,TestTeam2,2012-10-03 00:00:00,APracticeNameOnly,,Individual,,,,,,,,,,,,,
+4,TestTeam2,TestStaff,2012-07-16 00:00:00,46-60 mins,TestTeam2,2011-06-05 00:00:00,Pastor Charles,TestStaff,Individual,0,,Telephone,,,1,,,,,0,,
+4,TestTeam1,TestStaff,2012-07-16 00:00:00,over 60 mins,TestTeam1,2011-04-08 00:00:00,Nurse Katrina,TestStaff,Group,,3,Video Conference,,,,0,,,1,,,
+HSGF484843,TestTeam1,TestStaff,2012-07-16 00:00:00,0-30 mins,TestTeam1,2011-02-02 00:00:00,Dr Shmuck,AHProName may differ from Staff Name,Individual,,12,Web-based,,,,,st_cbt_other,0,,,,
+HSGF484843,TestTeam1,TestStaff,2012-08-16 00:00:00,46-60 mins,TestTeam1,2011-02-02 00:00:00,Dr Shmuck,TestStaff,Group,,5,Video Conference,1,,1,1,,,1,1,,Discuss other strategies

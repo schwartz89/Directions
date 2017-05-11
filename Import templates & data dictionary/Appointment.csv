@@ -1,0 +1,14 @@
+StaffName,ClientIdentifier,StartTime,EndTime,Subject,Notes,Type,Status,Resource
+TestStaff,,2011-07-05 09:00:00,2011-07-05 10:00:00,New clients,Some notes about new client time slot,Reserved for seeing newly allocated clients,Arrived,Consulting Room 1
+TestStaff,1,2011-07-05 10:00:00,2011-07-05 11:00:00,"Simpson, Homer",Notes value,Client Appointment at Office,,Consulting Room 1
+TestStaff,1,2011-07-06 10:00:00,2011-07-06 11:00:00,Observations,"Take weight, height, waist",,Auto-Insert Status,Auto-Insert Resource
+TestStaff,1,2011-07-15 11:00:00,2011-07-15 12:00:00,"Simpson, Homer","General catchup, arrange follow up meeting",Client Home Visit,Booked,Consulting Room 2
+TestStaff,2,2011-07-05 11:00:00,2011-07-05 11:30:00,,Catchup,Client Appointment at Office,Arrived,Waiting Room
+TestStaff,2,2011-08-05 11:00:00,2011-08-05 11:30:00,"Simpson, Marge",Take observations,Client Home Visit,Consultation,
+TestStaff,,2011-07-05 12:30:00,2011-07-05 13:30:00,,Catchup,,Booked,Consulting Room 5
+TestStaff,HSGF484843,2011-07-05 11:30:00,2011-07-05 12:00:00,,Do questionnaires,Client Appointment at Office,Booked,
+TestStaff,HSGF484843,2011-07-06 10:00:00,2011-07-06 10:30:00,,Catchup,Client Appointment at Office,Consultation,
+TestStaff,,2011-07-15 11:00:00,2011-07-15 11:30:00,,This is an unavailable period,Unavailable period,Cancelled,
+NonActiveStaff,,2011-07-05 11:30:00,2011-07-05 12:00:00,,Staff meeting,Meeting/non-client event,Booked,Waiting Room
+NonActiveStaff,2,2011-07-05 12:30:00,2011-07-05 13:30:00,,Lunch,Unavailable period,Booked,
+NonActiveStaff,,2011-07-05 13:30:00,2011-07-05 14:00:00,,Some notes,Auto-Insert Type,Booked,,

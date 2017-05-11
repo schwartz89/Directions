@@ -1,0 +1,3 @@
+Name,Surname,DisplayName,Discipline,CanLogon,PasswordHashed,PrescriberNo,Qualification,ProviderNo,AutoLockOutTime,IsCurrent,Role
+TestStaff,Test,Test Staff,IT Worker,1,0,12345678,BBA,ABC123,60,1,System Administrator
+NonActiveStaff,Test,Non-Active Staff,Psychologist,1,0,,,,,0,
