@@ -42,7 +42,7 @@ MC.Setnames <- function(X,oldnames,newnames){
   #change input arg to a 2 column matrix? Or a GUI-selected excel doc?
 }
 
-#-------------
+-------------
 # F3B Function to move data, whilst row-matching by participant ID.
 # The previous function does not do this, it only renames. This is fine
 # if all data comes from the same Comunicare report. However the data
@@ -65,6 +65,20 @@ MC.Movedata<-function(CCdata, MCtemplate){
   
   #setkey() #data.table
   #select() #dplyr
+  #https://rawgit.com/wiki/Rdatatable/data.table/vignettes/datatable-reference-semantics.html
+  # := #data.table
+  # ## joins using < v1.9.6 
+  # setkey(X, a) # absolutely required
+  # setkey(Y, a) # not absolutely required as long as 'a' is the first column
+  # X[Y]
+  # ## joins using v1.9.6+
+  # X[Y, on="a"]
+  # # or if the column names are x_a and y_a respectively
+  # X[Y, on=c("x_a" = "y_a")]
+  
+  #1# setkey(ZIP,zipcode)
+  #2# setkey(PPL,zipcode)
+  #3# full.info <- PPL[ZIP, nomatch=F]
   
   ##mutating join #see dplyr two-table vignette
     #full_join() joining by: index 
