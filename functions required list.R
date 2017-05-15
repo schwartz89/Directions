@@ -58,6 +58,21 @@ MC.Movedata<-function(CCdata, MCtemplate){
   x <- full_join(MCtemplate, CCdata) #by = "PID") #this is optional, should do it auto, can specify multiple cols to index by if needed (for validation)
   x
   
+#this also works
+  #library("data.table")
+  # CC<-as.data.table(CC)
+  # MC<-as.data.table(MC)
+  # joined <- MC[C_V, on = c("ClientIdentifier" = "PAT.ID")] #You specify which column to paste into within the joining syntax
+#as does
+  # setkey(CC, PAT.ID)
+  # setkey(MC, ClientIdentifier)
+  # Kjoined <- MC[CC]
+#I think any important arg is nomatch = 
+#This seems to allow you to specify whether to turn things into NA
+  # Kjoined <- MC[CC, nomatch=F]
+  
+#selecting in Data.table
+  #C_V2<- C_V[ ,list(DATE.OF.BIRTH,PAT.ID,ADDR.1,FORENAMES,SURNAME)] #first arg blank because you want ALL obs
   
   
 #TODO combine with above function?
@@ -67,6 +82,7 @@ MC.Movedata<-function(CCdata, MCtemplate){
   #select() #dplyr
   #https://rawgit.com/wiki/Rdatatable/data.table/vignettes/datatable-reference-semantics.html
   # := #data.table
+  
   # ## joins using < v1.9.6 
   # setkey(X, a) # absolutely required
   # setkey(Y, a) # not absolutely required as long as 'a' is the first column
