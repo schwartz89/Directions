@@ -67,16 +67,21 @@ MC.Movedata<-function(CCdata, MCtemplate){
   # setkey(CC, PAT.ID)
   # setkey(MC, ClientIdentifier)
   # Kjoined <- MC[CC]
-#I think any important arg is nomatch = 
-#This seems to allow you to specify whether to turn things into NA
-  # Kjoined <- MC[CC, nomatch=F]
-  
+
+##Updating data by index (if your plugging in extra data from seperate source
+  #and want it to match by PID)
+  #CCupdate <- data.table(ID = CC$PAT.ID, Sex = CC$PAT.SEX) #creating table of data to be added, with PID in left column
+  #setkey(CCupdate, ID) #optional?
+  #MC$Sex <- CCupdate[match(MC$ClientIdentifier, CCupdate$ID),2] #inserting and matching by ID. The ',2' is specifying that data to be added is in col 2.
+    
 #selecting in Data.table
   #C_V2<- C_V[ ,list(DATE.OF.BIRTH,PAT.ID,ADDR.1,FORENAMES,SURNAME)] #first arg blank because you want ALL obs
   
   
 #TODO combine with above function?
   
+  #updating data in df
+  # MC$colname <- NewCC[match(MC$PID, NewCC$PID), 2]
   
   #setkey() #data.table
   #select() #dplyr
